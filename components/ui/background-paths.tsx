@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
-function FloatingPaths({ position }: { position: number }) {
+export function FloatingPaths({ position }: { position: number }) {
     const paths = Array.from({ length: 36 }, (_, i) => ({
         id: i,
         d: `M-${380 - i * 5 * position} -${189 + i * 6}C-${
@@ -13,15 +13,27 @@ function FloatingPaths({ position }: { position: number }) {
         } ${343 - i * 6}C${616 - i * 5 * position} ${470 - i * 6} ${
             684 - i * 5 * position
         } ${875 - i * 6} ${684 - i * 5 * position} ${875 - i * 6}`,
-        color: `rgba(15,23,42,${0.1 + i * 0.03})`,
-        width: 0.5 + i * 0.03,
+        width: 0.8 + i * 0.05,
     }));
 
     return (
-        <div className="absolute inset-0 pointer-events-none">
+        <div
+            style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                bottom: 0,
+                pointerEvents: "none",
+                overflow: "hidden",
+                maskImage: "linear-gradient(135deg, transparent 0%, transparent 20%, rgba(0,0,0,0.4) 35%, white 55%)",
+                WebkitMaskImage: "linear-gradient(135deg, transparent 0%, transparent 20%, rgba(0,0,0,0.4) 35%, white 55%)",
+            }}
+        >
             <svg
-                className="w-full h-full text-slate-950 dark:text-white"
-                viewBox="0 0 696 316"
+                style={{ width: "100%", height: "100%", display: "block" }}
+                viewBox="-570 -410 1260 1290"
+                preserveAspectRatio="none"
                 fill="none"
             >
                 <title>Background Paths</title>
@@ -29,19 +41,20 @@ function FloatingPaths({ position }: { position: number }) {
                     <motion.path
                         key={path.id}
                         d={path.d}
-                        stroke="currentColor"
+                        stroke="white"
                         strokeWidth={path.width}
-                        strokeOpacity={0.1 + path.id * 0.03}
-                        initial={{ pathLength: 0.3, opacity: 0.6 }}
+                        strokeOpacity={0.15 + path.id * 0.015}
+                        initial={{ pathLength: 0, opacity: 0 }}
                         animate={{
                             pathLength: 1,
-                            opacity: [0.3, 0.6, 0.3],
+                            opacity: [0.5, 1, 0.5],
                             pathOffset: [0, 1, 0],
                         }}
                         transition={{
-                            duration: 20 + Math.random() * 10,
+                            duration: 15 + (path.id % 8) * 2,
                             repeat: Number.POSITIVE_INFINITY,
                             ease: "linear",
+                            delay: path.id * 0.1,
                         }}
                     />
                 ))}

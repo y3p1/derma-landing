@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { FloatingPaths } from "@/components/ui/background-paths";
 
 export default function Home() {
   useEffect(() => {
@@ -96,9 +97,13 @@ export default function Home() {
         <div className="orb orb-3"></div>
         <div className="hero-contours"></div>
 
+        {/* ANIMATED BACKGROUND PATHS */}
+        <FloatingPaths position={1} />
+        <FloatingPaths position={-1} />
+
         <div className="hero-inner">
           <div className="hero-content">
-            <div className="hero-badge">Clinical Intelligence Platform</div>
+            <div className="hero-badge">Clinical Procurement Platform</div>
 
             <h1 className="hero-headline">
               Route every wound to its <em>optimal</em> outcome
