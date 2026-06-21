@@ -105,7 +105,7 @@ export default function Home() {
             </h1>
 
             <p className="hero-sub">
-              DermaRoute unifies benefits verification, insurance routing, healing tracking, and product ordering across your Wound Care, Lymphedema, and Ocular service lines — one portal, zero silos.
+              DermaRoute is the B2B portal built for specialty clinics — manage BV requests, insurance routing, supplier orders, BAA agreements, and healing outcomes across Tissue/Biologics, Lymphedema, and Ocular service lines from a single dashboard.
             </p>
 
             <div className="hero-actions">
@@ -136,8 +136,8 @@ export default function Home() {
 
           {/* DASHBOARD MOCKUP */}
           <div className="hero-visual">
-            <div className="mock-tooltip">3 patients need routing ↓</div>
-            <div className="dashboard-mock">
+            <div className="dashboard-mock" style={{ position: 'relative', overflow: 'visible' }}>
+              <div className="mock-tooltip">3 patients need routing ↓</div>
               <div className="mock-topbar">
                 <div className="mock-dots">
                   <div className="mock-dot mock-dot-r"></div>
@@ -239,7 +239,7 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="feature-title">Benefits Verification</h3>
-              <p className="feature-desc">Submit and track BV requests with a guided multi-step workflow. Know coverage before treatment begins — no claim surprises at checkout.</p>
+              <p className="feature-desc">Submit BV requests with patient info, wound type, ICD-10 codes, wound dimensions, and insurance details. Track approval status, upload proof documents, and gate product orders until coverage is confirmed.</p>
             </div>
 
             <div className="feature-card feature-card-teal">
@@ -253,7 +253,7 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="feature-title">Insurance Routing</h3>
-              <p className="feature-desc">Automatically match patients to the right payer pathways. Manage insurance carriers, track policy status, and streamline pre-authorization in one view.</p>
+              <p className="feature-desc">Admin-managed routing tables map each insurance plan to approved manufacturers. Coverage plans, formulary rules, and payer-to-manufacturer approvals live in one place — no manual lookups, no routing errors.</p>
             </div>
 
             <div className="feature-card feature-card-gold">
@@ -265,8 +265,8 @@ export default function Home() {
                   <circle cx="7" cy="11" r="1.5" fill="#C9963A" />
                 </svg>
               </div>
-              <h3 className="feature-title">Healing Tracker</h3>
-              <p className="feature-desc">Longitudinal wound measurement tracking with photo timelines. Log dimensions, tissue type, and exudate week-over-week to prove healing progress to payers.</p>
+              <h3 className="feature-title">Wound Healing Tracker</h3>
+              <p className="feature-desc">Log wound measurements in cm² with date and clinical notes per BV request. Track size reduction week-over-week and surface the data clinicians need to demonstrate healing progress to payers.</p>
             </div>
 
             <div className="feature-card feature-card-primary">
@@ -278,8 +278,8 @@ export default function Home() {
                   <path d="M11 10H14M12.5 8.5V11.5" stroke="#E8724A" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
               </div>
-              <h3 className="feature-title">Product Ordering</h3>
-              <p className="feature-desc">Browse full Lymphedema and Ocular product catalogs, generate order PDFs, and track reorders — all from the same dashboard your clinical team already uses.</p>
+              <h3 className="feature-title">Tissue &amp; Biologics Ordering</h3>
+              <p className="feature-desc">Browse the wound care product catalog organized by manufacturer, Q-code, pay rate, and compatible wound sizes. Orders are tied directly to approved BV requests — no orphan orders, full traceability.</p>
             </div>
 
             <div className="feature-card feature-card-teal">
@@ -291,8 +291,46 @@ export default function Home() {
                   <path d="M5 8H5.01M13 12H13.01" stroke="#2EC4B6" strokeWidth="1.5" strokeLinecap="round" />
                 </svg>
               </div>
-              <h3 className="feature-title">Multi-Track Platform</h3>
-              <p className="feature-desc">Run Wound Care, Lymphedema, and Ocular service lines from a single portal. Each track has tailored workflows, catalogs, and order management built in.</p>
+              <h3 className="feature-title">Medical Devices &amp; Ocular</h3>
+              <p className="feature-desc">Submit lymphedema compression pump and garment orders with HCPCS codes and pressure settings. Separately, order VisiDisc® amniotic membrane discs by variant, size, and SKU — shipping tiers calculated automatically.</p>
+            </div>
+
+            <div className="feature-card feature-card-gold">
+              <div className="feature-icon icon-gold">
+                <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4 6H18L16 14H6L4 6Z" stroke="#C9963A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M4 6L3 3H1" stroke="#C9963A" strokeWidth="1.5" strokeLinecap="round" />
+                  <circle cx="8" cy="19" r="1" fill="#C9963A" />
+                  <circle cx="14" cy="19" r="1" fill="#C9963A" />
+                </svg>
+              </div>
+              <h3 className="feature-title">Supplier Distribution</h3>
+              <p className="feature-desc">DR Representatives send formatted order packages directly to distributors from inside the portal — no copy-paste, no fax. Supplier email addresses are configurable per service line via System Settings.</p>
+            </div>
+
+            <div className="feature-card feature-card-primary">
+              <div className="feature-icon icon-primary">
+                <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14 3H6C4.9 3 4 3.9 4 5V17C4 18.1 4.9 19 6 19H16C17.1 19 18 18.1 18 17V7L14 3Z" stroke="#E8724A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M14 3V7H18" stroke="#E8724A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M8 13L10 15L14 11" stroke="#E8724A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
+              <h3 className="feature-title">BAA Management</h3>
+              <p className="feature-desc">Digital Business Associate Agreements with in-portal signature capture per provider. Track signing status — pending, signed, approved, or cancelled — across all accounts with a full admin audit trail.</p>
+            </div>
+
+            <div className="feature-card feature-card-teal">
+              <div className="feature-icon icon-teal">
+                <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="11" cy="7" r="3" stroke="#2EC4B6" strokeWidth="1.5" />
+                  <path d="M5 19C5 16.24 7.69 14 11 14C14.31 14 17 16.24 17 19" stroke="#2EC4B6" strokeWidth="1.5" strokeLinecap="round" />
+                  <path d="M17 5L19 7L17 9" stroke="#2EC4B6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  <path d="M5 5L3 7L5 9" stroke="#2EC4B6" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
+              <h3 className="feature-title">Role-Based Access</h3>
+              <p className="feature-desc">Providers see only their own submissions and enabled service lines. DR Representatives manage all assigned clinic accounts. Admins control the entire system — users, tracks, routing rules, and settings — from one dashboard.</p>
             </div>
 
             <div className="feature-card feature-card-gold">
@@ -303,8 +341,8 @@ export default function Home() {
                   <path d="M8 10L10 12L14 8" stroke="#C9963A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
-              <h3 className="feature-title">Analytics & Compliance</h3>
-              <p className="feature-desc">Practice-wide analytics, audit logs, BAA management, and role-based access control — everything needed for HIPAA compliance and QA reporting baked in.</p>
+              <h3 className="feature-title">Analytics &amp; Audit Logs</h3>
+              <p className="feature-desc">Practice-wide outcome metrics, commission data, and success rates per service line. Every database change is logged — table, record, old and new values — giving admins a complete, timestamped compliance history.</p>
             </div>
           </div>
         </div>
@@ -316,26 +354,26 @@ export default function Home() {
           <div className="how-header reveal">
             <div>
               <div className="section-tag">The Process</div>
-              <h2 className="section-headline">Three steps from assessment to treatment</h2>
+              <h2 className="section-headline">Three steps from intake to fulfillment</h2>
             </div>
-            <p className="section-sub" style={{ maxWidth: '320px', fontSize: '15px' }}>A clinical workflow engineered for speed without sacrificing precision or safety.</p>
+            <p className="section-sub" style={{ maxWidth: '320px', fontSize: '15px' }}>A B2B ordering workflow built for specialty clinics — structured, verified, and fully traceable.</p>
           </div>
 
           <div className="steps-track reveal-group">
             <div className="step">
               <div className="step-number">01</div>
-              <h3 className="step-title">Assess & Classify</h3>
-              <p className="step-desc">Clinicians enter wound characteristics — type, dimensions, depth, exudate, and peri-wound status. DermaRoute classifies severity and flags risk factors instantly.</p>
+              <h3 className="step-title">Submit &amp; Request</h3>
+              <p className="step-desc">Providers complete guided intake forms for BV requests or product orders. Patient demographics, wound details, ICD-10 codes, and insurance information are captured in one structured flow — no freeform fields, no missing data.</p>
             </div>
             <div className="step">
               <div className="step-number">02</div>
-              <h3 className="step-title">Route to Protocol</h3>
-              <p className="step-desc">The engine matches each case to evidence-based treatment protocols, checks formulary coverage, and routes to the appropriate specialist or care setting.</p>
+              <h3 className="step-title">Review &amp; Verify</h3>
+              <p className="step-desc">DR Representatives review submissions in their unified dashboard, verify insurance coverage, confirm manufacturer routing, and approve or deny BV requests. Nothing ships without a verified sign-off.</p>
             </div>
             <div className="step">
               <div className="step-number">03</div>
-              <h3 className="step-title">Track & Optimize</h3>
-              <p className="step-desc">Longitudinal tracking measures healing week-over-week. AI flags stalled cases, suggests escalation, and generates outcome reports for payers and QA.</p>
+              <h3 className="step-title">Fulfill &amp; Track</h3>
+              <p className="step-desc">Approved orders are dispatched to distributors via formatted supplier emails. Healing progress is logged week-over-week, outcomes are recorded, and admins access the full audit trail and analytics in real time.</p>
             </div>
           </div>
         </div>

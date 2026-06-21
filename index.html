@@ -380,6 +380,7 @@
     /* ── HERO VISUAL ── */
     .hero-visual {
       position: relative;
+      padding-top: 28px;
       opacity: 0;
       animation: fadeUp 0.9s 0.45s ease forwards;
     }
@@ -550,7 +551,7 @@
     /* Floating tooltip on mock */
     .mock-tooltip {
       position: absolute;
-      top: -18px;
+      top: -20px;
       right: 32px;
       background: var(--primary);
       color: #fff;
@@ -561,6 +562,7 @@
       white-space: nowrap;
       box-shadow: 0 4px 20px rgba(232,114,74,0.35);
       animation: tooltipPulse 3s ease-in-out infinite;
+      z-index: 20;
     }
 
     .mock-tooltip::after {
@@ -1067,10 +1069,16 @@
       transition: opacity 0.6s ease, transform 0.6s ease;
     }
 
-    .reveal-group.visible > *:nth-child(1) { opacity: 1; transform: none; transition-delay: 0s; }
-    .reveal-group.visible > *:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.1s; }
-    .reveal-group.visible > *:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.2s; }
-    .reveal-group.visible > *:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.3s; }
+    .reveal-group.visible > * { opacity: 1; transform: none; }
+    .reveal-group.visible > *:nth-child(1) { transition-delay: 0s; }
+    .reveal-group.visible > *:nth-child(2) { transition-delay: 0.08s; }
+    .reveal-group.visible > *:nth-child(3) { transition-delay: 0.16s; }
+    .reveal-group.visible > *:nth-child(4) { transition-delay: 0.24s; }
+    .reveal-group.visible > *:nth-child(5) { transition-delay: 0.32s; }
+    .reveal-group.visible > *:nth-child(6) { transition-delay: 0.40s; }
+    .reveal-group.visible > *:nth-child(7) { transition-delay: 0.08s; }
+    .reveal-group.visible > *:nth-child(8) { transition-delay: 0.16s; }
+    .reveal-group.visible > *:nth-child(9) { transition-delay: 0.24s; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 1200px) {
@@ -1167,7 +1175,7 @@
         </h1>
 
         <p class="hero-sub">
-          DermaRoute unifies benefits verification, insurance routing, healing tracking, and product ordering across your Wound Care, Lymphedema, and Ocular service lines — one portal, zero silos.
+          DermaRoute is the B2B portal built for specialty clinics — manage BV requests, insurance routing, supplier orders, BAA agreements, and healing outcomes across Tissue/Biologics, Lymphedema, and Ocular service lines from a single dashboard.
         </p>
 
         <div class="hero-actions">
@@ -1198,8 +1206,8 @@
 
       <!-- DASHBOARD MOCKUP -->
       <div class="hero-visual">
-        <div class="mock-tooltip">3 patients need routing ↓</div>
-        <div class="dashboard-mock">
+        <div class="dashboard-mock" style="position:relative; overflow:visible;">
+          <div class="mock-tooltip">3 patients need routing ↓</div>
           <div class="mock-topbar">
             <div class="mock-dots">
               <div class="mock-dot mock-dot-r"></div>
@@ -1302,7 +1310,7 @@
             </svg>
           </div>
           <h3 class="feature-title">Benefits Verification</h3>
-          <p class="feature-desc">Submit and track BV requests with a guided multi-step workflow. Know coverage before treatment begins — no claim surprises at checkout.</p>
+          <p class="feature-desc">Submit BV requests with patient info, wound type, ICD-10 codes, wound dimensions, and insurance details. Track approval status, upload proof documents, and gate product orders until coverage is confirmed.</p>
         </div>
 
         <!-- Feature 2: Insurance Routing -->
@@ -1317,7 +1325,7 @@
             </svg>
           </div>
           <h3 class="feature-title">Insurance Routing</h3>
-          <p class="feature-desc">Automatically match patients to the right payer pathways. Manage insurance carriers, track policy status, and streamline pre-authorization in one view.</p>
+          <p class="feature-desc">Admin-managed routing tables map each insurance plan to approved manufacturers. Coverage plans, formulary rules, and payer-to-manufacturer approvals live in one place — no manual lookups, no routing errors.</p>
         </div>
 
         <!-- Feature 3: Healing Tracker -->
@@ -1330,11 +1338,11 @@
               <circle cx="7" cy="11" r="1.5" fill="#C9963A"/>
             </svg>
           </div>
-          <h3 class="feature-title">Healing Tracker</h3>
-          <p class="feature-desc">Longitudinal wound measurement tracking with photo timelines. Log dimensions, tissue type, and exudate week-over-week to prove healing progress to payers.</p>
+          <h3 class="feature-title">Wound Healing Tracker</h3>
+          <p class="feature-desc">Log wound measurements in cm² with date and clinical notes per BV request. Track size reduction week-over-week and surface the data clinicians need to demonstrate healing progress to payers.</p>
         </div>
 
-        <!-- Feature 4: Product Ordering -->
+        <!-- Feature 4: Tissue & Biologics Ordering -->
         <div class="feature-card feature-card-primary">
           <div class="feature-icon icon-primary">
             <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1344,11 +1352,11 @@
               <path d="M11 10H14M12.5 8.5V11.5" stroke="#E8724A" stroke-width="1.5" stroke-linecap="round"/>
             </svg>
           </div>
-          <h3 class="feature-title">Product Ordering</h3>
-          <p class="feature-desc">Browse full Lymphedema and Ocular product catalogs, generate order PDFs, and track reorders — all from the same dashboard your clinical team already uses.</p>
+          <h3 class="feature-title">Tissue & Biologics Ordering</h3>
+          <p class="feature-desc">Browse the wound care product catalog organized by manufacturer, Q-code, pay rate, and compatible wound sizes. Orders are tied directly to approved BV requests — no orphan orders, full traceability.</p>
         </div>
 
-        <!-- Feature 5: Multi-Track Practice -->
+        <!-- Feature 5: Medical Devices & Ocular -->
         <div class="feature-card feature-card-teal">
           <div class="feature-icon icon-teal">
             <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1358,11 +1366,53 @@
               <path d="M5 8H5.01M13 12H13.01" stroke="#2EC4B6" stroke-width="1.5" stroke-linecap="round"/>
             </svg>
           </div>
-          <h3 class="feature-title">Multi-Track Platform</h3>
-          <p class="feature-desc">Run Wound Care, Lymphedema, and Ocular service lines from a single portal. Each track has tailored workflows, catalogs, and order management built in.</p>
+          <h3 class="feature-title">Medical Devices & Ocular</h3>
+          <p class="feature-desc">Submit lymphedema compression pump and garment orders with HCPCS codes, garment specs, and pressure settings. Separately, order VisiDisc® amniotic membrane discs by variant, size, and SKU — shipping tiers calculated automatically.</p>
         </div>
 
-        <!-- Feature 6: Analytics & Compliance -->
+        <!-- Feature 6: Supplier Distribution -->
+        <div class="feature-card feature-card-gold">
+          <div class="feature-icon icon-gold">
+            <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M4 6H18L16 14H6L4 6Z" stroke="#C9963A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M4 6L3 3H1" stroke="#C9963A" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M9 19C9 19.55 8.55 20 8 20C7.45 20 7 19.55 7 19C7 18.45 7.45 18 8 18C8.55 18 9 18.45 9 19Z" fill="#C9963A"/>
+              <path d="M15 19C15 19.55 14.55 20 14 20C13.45 20 13 19.55 13 19C13 18.45 13.45 18 14 18C14.55 18 15 18.45 15 19Z" fill="#C9963A"/>
+              <path d="M14 10L16 8M16 8L18 6M16 8L18 10M16 8L14 6" stroke="#C9963A" stroke-width="1.3" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">Supplier Distribution</h3>
+          <p class="feature-desc">DR Representatives send formatted order packages directly to distributors from inside the portal — no copy-paste, no fax. Supplier email addresses are configurable per service line via System Settings.</p>
+        </div>
+
+        <!-- Feature 7: BAA Management -->
+        <div class="feature-card feature-card-primary">
+          <div class="feature-icon icon-primary">
+            <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 3H6C4.9 3 4 3.9 4 5V17C4 18.1 4.9 19 6 19H16C17.1 19 18 18.1 18 17V7L14 3Z" stroke="#E8724A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M14 3V7H18" stroke="#E8724A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8 13L10 15L14 11" stroke="#E8724A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">BAA Management</h3>
+          <p class="feature-desc">Digital Business Associate Agreements with in-portal signature capture per provider. Track signing status — pending, signed, approved, or cancelled — across all accounts with a full admin audit trail.</p>
+        </div>
+
+        <!-- Feature 8: Multi-Track Practice Portal -->
+        <div class="feature-card feature-card-teal">
+          <div class="feature-icon icon-teal">
+            <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="11" cy="7" r="3" stroke="#2EC4B6" stroke-width="1.5"/>
+              <path d="M5 19C5 16.24 7.69 14 11 14C14.31 14 17 16.24 17 19" stroke="#2EC4B6" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M17 5L19 7L17 9" stroke="#2EC4B6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M5 5L3 7L5 9" stroke="#2EC4B6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="feature-title">Role-Based Access</h3>
+          <p class="feature-desc">Providers see only their own submissions and enabled service lines. DR Representatives manage all assigned clinic accounts. Admins control the entire system — users, tracks, routing rules, and settings — from one dashboard.</p>
+        </div>
+
+        <!-- Feature 9: Analytics & Audit Logs -->
         <div class="feature-card feature-card-gold">
           <div class="feature-icon icon-gold">
             <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -1371,8 +1421,8 @@
               <path d="M8 10L10 12L14 8" stroke="#C9963A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
-          <h3 class="feature-title">Analytics & Compliance</h3>
-          <p class="feature-desc">Practice-wide analytics, audit logs, BAA management, and role-based access control — everything needed for HIPAA compliance and QA reporting baked in.</p>
+          <h3 class="feature-title">Analytics & Audit Logs</h3>
+          <p class="feature-desc">Practice-wide outcome metrics, commission data, and success rates per service line. Every database change is logged — table, record, old and new values — giving admins a complete, timestamped compliance history.</p>
         </div>
       </div>
     </div>
@@ -1384,28 +1434,28 @@
       <div class="how-header reveal">
         <div>
           <div class="section-tag">The Process</div>
-          <h2 class="section-headline">Three steps from assessment to treatment</h2>
+          <h2 class="section-headline">Three steps from intake to fulfillment</h2>
         </div>
-        <p class="section-sub" style="max-width: 320px; font-size: 15px;">A clinical workflow engineered for speed without sacrificing precision or safety.</p>
+        <p class="section-sub" style="max-width: 320px; font-size: 15px;">A B2B ordering workflow built for specialty clinics — structured, verified, and fully traceable.</p>
       </div>
 
       <div class="steps-track reveal-group">
         <div class="step">
           <div class="step-number">01</div>
-          <h3 class="step-title">Assess & Classify</h3>
-          <p class="step-desc">Clinicians enter wound characteristics — type, dimensions, depth, exudate, and peri-wound status. DermaRoute classifies severity and flags risk factors instantly.</p>
+          <h3 class="step-title">Submit & Request</h3>
+          <p class="step-desc">Providers complete guided intake forms for BV requests or product orders. Patient demographics, wound details, ICD-10 codes, and insurance information are captured in one structured flow — no freeform fields, no missing data.</p>
         </div>
 
         <div class="step">
           <div class="step-number">02</div>
-          <h3 class="step-title">Route to Protocol</h3>
-          <p class="step-desc">The engine matches each case to evidence-based treatment protocols, checks formulary coverage, and routes to the appropriate specialist or care setting.</p>
+          <h3 class="step-title">Review & Verify</h3>
+          <p class="step-desc">DR Representatives review submissions in their unified dashboard, verify insurance coverage, confirm manufacturer routing, and approve or deny BV requests. Nothing ships without a verified sign-off.</p>
         </div>
 
         <div class="step">
           <div class="step-number">03</div>
-          <h3 class="step-title">Track & Optimize</h3>
-          <p class="step-desc">Longitudinal tracking measures healing week-over-week. AI flags stalled cases, suggests escalation, and generates outcome reports for payers and QA.</p>
+          <h3 class="step-title">Fulfill & Track</h3>
+          <p class="step-desc">Approved orders are dispatched to distributors via formatted supplier emails. Healing progress is logged week-over-week, outcomes are recorded, and admins access the full audit trail and analytics in real time.</p>
         </div>
       </div>
     </div>

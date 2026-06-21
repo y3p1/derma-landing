@@ -360,6 +360,7 @@ nav {
 
 .hero-visual {
   position: relative;
+  padding-top: 28px;
   opacity: 0;
   animation: fadeUp 0.9s 0.45s ease forwards;
 }
@@ -522,7 +523,7 @@ nav {
 
 .mock-tooltip {
   position: absolute;
-  top: -18px;
+  top: -20px;
   right: 32px;
   background: var(--primary);
   color: #fff;
@@ -533,6 +534,7 @@ nav {
   white-space: nowrap;
   box-shadow: 0 4px 20px rgba(232,114,74,0.35);
   animation: tooltipPulse 3s ease-in-out infinite;
+  z-index: 20;
 }
 
 .mock-tooltip::after {
@@ -1008,10 +1010,16 @@ footer {
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.reveal-group.visible > *:nth-child(1) { opacity: 1; transform: none; transition-delay: 0s; }
-.reveal-group.visible > *:nth-child(2) { opacity: 1; transform: none; transition-delay: 0.1s; }
-.reveal-group.visible > *:nth-child(3) { opacity: 1; transform: none; transition-delay: 0.2s; }
-.reveal-group.visible > *:nth-child(4) { opacity: 1; transform: none; transition-delay: 0.3s; }
+.reveal-group.visible > * { opacity: 1; transform: none; }
+.reveal-group.visible > *:nth-child(1) { transition-delay: 0s; }
+.reveal-group.visible > *:nth-child(2) { transition-delay: 0.08s; }
+.reveal-group.visible > *:nth-child(3) { transition-delay: 0.16s; }
+.reveal-group.visible > *:nth-child(4) { transition-delay: 0.24s; }
+.reveal-group.visible > *:nth-child(5) { transition-delay: 0.32s; }
+.reveal-group.visible > *:nth-child(6) { transition-delay: 0.40s; }
+.reveal-group.visible > *:nth-child(7) { transition-delay: 0.08s; }
+.reveal-group.visible > *:nth-child(8) { transition-delay: 0.16s; }
+.reveal-group.visible > *:nth-child(9) { transition-delay: 0.24s; }
 
 .count-target { display: inline; }
 
