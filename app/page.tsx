@@ -1,9 +1,92 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { FloatingPaths } from "@/components/ui/background-paths";
 
+type ModalType = "privacy" | "hipaa" | null;
+
+const PRIVACY_CONTENT = {
+  title: "Privacy Policy",
+  lastUpdated: "June 1, 2026",
+  sections: [
+    {
+      heading: "1. Information We Collect",
+      body: "DermaRoute collects information you provide directly, including clinic name, contact details, and account credentials. We also collect usage data, device information, and log data when you interact with our platform. Patient data entered by authorized clinic personnel is processed solely on behalf of the covered entity and is subject to our Business Associate Agreement (BAA).",
+    },
+    {
+      heading: "2. How We Use Your Information",
+      body: "We use the information we collect to provide, maintain, and improve the DermaRoute platform; to process benefits verification requests and supplier orders; to send administrative communications; and to comply with applicable legal obligations. We do not sell or rent your personal information to third parties.",
+    },
+    {
+      heading: "3. Data Sharing & Disclosure",
+      body: "We may share your information with trusted service providers who assist in operating our platform (e.g., cloud infrastructure, email delivery) under confidentiality agreements. We may also disclose information when required by law, to enforce our terms, or to protect the rights, property, or safety of DermaRoute, our users, or the public.",
+    },
+    {
+      heading: "4. Data Retention",
+      body: "We retain account and usage data for as long as your account is active or as needed to provide services. Upon account termination, data is purged within 90 days unless longer retention is required by applicable law or our BAA obligations.",
+    },
+    {
+      heading: "5. Security",
+      body: "We implement industry-standard administrative, technical, and physical safeguards — including AES-256 encryption at rest, TLS 1.2+ in transit, role-based access controls, and automated audit logging — to protect your information from unauthorized access, disclosure, alteration, or destruction.",
+    },
+    {
+      heading: "6. Your Rights",
+      body: "Depending on your jurisdiction, you may have the right to access, correct, or delete personal information we hold about you. To exercise any of these rights, contact us at privacy@dermaroute.com. We will respond within 30 days.",
+    },
+    {
+      heading: "7. Changes to This Policy",
+      body: "We may update this Privacy Policy periodically. We will notify you of material changes by posting the updated policy on our website and, where appropriate, by email. Continued use of the platform after changes become effective constitutes acceptance of the revised policy.",
+    },
+    {
+      heading: "8. Contact",
+      body: "If you have questions about this Privacy Policy, contact DermaRoute at: privacy@dermaroute.com | DermaRoute, Inc., 1234 Health Way, Suite 500, San Diego, CA 92101.",
+    },
+  ],
+};
+
+const HIPAA_CONTENT = {
+  title: "HIPAA Compliance Notice",
+  lastUpdated: "June 1, 2026",
+  sections: [
+    {
+      heading: "Our Role as a Business Associate",
+      body: "DermaRoute operates as a Business Associate (BA) under the Health Insurance Portability and Accountability Act of 1996 (HIPAA) and its implementing regulations. When your clinic (the Covered Entity) uses our platform to process Protected Health Information (PHI), DermaRoute acts solely on your behalf pursuant to a signed Business Associate Agreement (BAA).",
+    },
+    {
+      heading: "What Is Protected Health Information?",
+      body: "PHI includes any individually identifiable health information transmitted or maintained in any form — electronic, paper, or oral — that relates to a patient's past, present, or future health condition; the provision of health care; or the payment for health care. On DermaRoute, PHI primarily includes patient demographics, wound documentation, ICD-10 codes, and insurance identifiers.",
+    },
+    {
+      heading: "HIPAA-Compliant Safeguards",
+      body: "DermaRoute maintains comprehensive Administrative, Physical, and Technical Safeguards as required by the HIPAA Security Rule (45 CFR §§ 164.308–164.312). Key measures include: role-based access control (RBAC) limiting PHI access to authorized personnel; AES-256 encryption for PHI at rest; TLS 1.2+ encryption for all data in transit; automatic session timeouts; detailed audit logs capturing all PHI access and modifications; and annual workforce security training.",
+    },
+    {
+      heading: "Business Associate Agreement (BAA)",
+      body: "A HIPAA-compliant BAA must be executed before any PHI is transmitted through DermaRoute. The platform enforces this requirement at the account level — PHI-bearing features are locked until a signed BAA is on file. BAA templates are available in the portal under Settings → BAA Management, and digital signatures are captured in-platform with a full audit trail.",
+    },
+    {
+      heading: "Breach Notification",
+      body: "In the event of a breach of unsecured PHI, DermaRoute will notify affected Covered Entities without unreasonable delay and no later than 60 days from discovery, consistent with 45 CFR § 164.410. Our incident response team is available 24/7. Covered Entities remain responsible for notifying affected individuals and the U.S. Department of Health & Human Services (HHS) as required under the Breach Notification Rule.",
+    },
+    {
+      heading: "Data Subprocessors",
+      body: "DermaRoute uses a limited number of vetted subprocessors (e.g., cloud hosting, backup services) that also execute BAAs and maintain HIPAA-compliant controls. A current list of authorized subprocessors is available upon request at compliance@dermaroute.com.",
+    },
+    {
+      heading: "Patient Rights",
+      body: "As a Business Associate, DermaRoute supports Covered Entities in honoring patient rights under HIPAA, including rights of access, amendment, and accounting of disclosures. Patients should direct rights requests to their clinic (the Covered Entity); DermaRoute will cooperate with the clinic to fulfill such requests.",
+    },
+    {
+      heading: "Contact Our Privacy Officer",
+      body: "For HIPAA-related inquiries, to report a potential incident, or to request our BAA template or subprocessor list, contact: compliance@dermaroute.com | HIPAA Privacy Officer, DermaRoute, Inc., 1234 Health Way, Suite 500, San Diego, CA 92101. Phone: (800) 555-0199.",
+    },
+  ],
+};
+
 export default function Home() {
+  const [activeModal, setActiveModal] = useState<ModalType>(null);
+  const openModal = (type: ModalType) => setActiveModal(type);
+  const closeModal = () => setActiveModal(null);
   useEffect(() => {
     const io = new IntersectionObserver(
       (entries) => {
@@ -80,7 +163,6 @@ export default function Home() {
         </ul>
 
         <div className="nav-cta">
-          <a href="#" className="btn-ghost">Sign In</a>
           <a href="https://derma-route.vercel.app/" className="btn-primary" target="_blank" rel="noopener">
             View Demo
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -434,9 +516,9 @@ export default function Home() {
                 <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </a>
-            <a href="mailto:team@nvzn.ai" className="btn-outline-lg">
+            <span className="btn-outline-lg btn-outline-disabled">
               Contact Sales
-            </a>
+            </span>
           </div>
 
           <p className="cta-footnote">No credit card. HIPAA-compliant environment. Setup in 24 hours.</p>
@@ -459,14 +541,71 @@ export default function Home() {
           <ul className="footer-links">
             <li><a href="#features">Features</a></li>
             <li><a href="#how-it-works">How it Works</a></li>
-            <li><a href="#">Privacy</a></li>
-            <li><a href="#">HIPAA</a></li>
+            <li><button className="footer-link-btn" onClick={() => openModal("privacy")}>Privacy</button></li>
+            <li><button className="footer-link-btn" onClick={() => openModal("hipaa")}>HIPAA</button></li>
             <li><a href="mailto:team@nvzn.ai">Contact</a></li>
           </ul>
 
           <p className="footer-copy">© 2026 DermaRoute. All rights reserved.</p>
         </div>
       </footer>
+
+      {/* POLICY MODALS */}
+      {activeModal && (() => {
+        const content = activeModal === "privacy" ? PRIVACY_CONTENT : HIPAA_CONTENT;
+        const accentColor = activeModal === "privacy" ? "var(--teal)" : "var(--primary)";
+        const iconPath = activeModal === "privacy"
+          ? "M12 2C9.24 2 7 4.24 7 7c0 1.85 1 3.47 2.5 4.33V13h1v1h-1v1h3v-1h-1v-1h1v-1.67C14 11.47 15 9.85 15 8c0-2.76-2.24-5-5-5Zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z"
+          : "M9 12l2 2 4-4M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9Z";
+        return (
+          <div
+            id={`modal-${activeModal}`}
+            className="modal-overlay"
+            onClick={(e) => { if (e.target === e.currentTarget) closeModal(); }}
+            role="dialog"
+            aria-modal="true"
+            aria-label={content.title}
+          >
+            <div className="modal-panel">
+              <div className="modal-header">
+                <div className="modal-icon" style={{ background: `color-mix(in srgb, ${accentColor} 14%, transparent)`, border: `1px solid color-mix(in srgb, ${accentColor} 28%, transparent)` }}>
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ color: accentColor }}>
+                    <path d={iconPath} stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </div>
+                <div>
+                  <h2 className="modal-title">{content.title}</h2>
+                  <p className="modal-meta">Last updated: {content.lastUpdated}</p>
+                </div>
+                <button
+                  id={`close-modal-${activeModal}`}
+                  className="modal-close"
+                  onClick={closeModal}
+                  aria-label="Close"
+                >
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
+                    <path d="M4 4L14 14M14 4L4 14" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+                  </svg>
+                </button>
+              </div>
+
+              <div className="modal-body">
+                {content.sections.map((sec, i) => (
+                  <div key={i} className="modal-section">
+                    <h3 className="modal-section-heading" style={{ color: accentColor }}>{sec.heading}</h3>
+                    <p className="modal-section-body">{sec.body}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="modal-footer">
+                <p className="modal-disclaimer">This document is provided for informational purposes. It does not constitute legal advice. For questions, contact us at <a href="mailto:team@nvzn.ai">team@nvzn.ai</a>.</p>
+                <button id={`modal-${activeModal}-done`} className="modal-done-btn" onClick={closeModal}>Got it</button>
+              </div>
+            </div>
+          </div>
+        );
+      })()}
     </>
   );
 }
