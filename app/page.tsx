@@ -185,14 +185,14 @@ export default function Home() {
 
         <div className="hero-inner">
           <div className="hero-content">
-            <div className="hero-badge">Clinical Procurement Platform</div>
+            <div className="hero-badge">B2B Healthcare Provider Portal</div>
 
             <h1 className="hero-headline">
               Route every wound to its <em>optimal</em> outcome
             </h1>
 
             <p className="hero-sub">
-              DermaRoute is the B2B portal built for specialty clinics — manage BV requests, insurance routing, supplier orders, BAA agreements, and healing outcomes across Tissue/Biologics, Lymphedema, and Ocular service lines from a single dashboard.
+              DermaRoute is the B2B portal built for specialty clinics — manage BV requests, insurance routing, supplier orders, BAA agreements, and healing outcomes across Tissue &amp; Biologics, Medical Devices, and Ocular service lines from a single, role-based dashboard.
             </p>
 
             <div className="hero-actions">
@@ -296,8 +296,8 @@ export default function Home() {
             <div className="stat-label">Partner clinics nationwide</div>
           </div>
           <div className="stat-item">
-            <div className="stat-number"><span className="count-target" data-target="200">0</span><span>+</span></div>
-            <div className="stat-label">Wound protocols built-in</div>
+            <div className="stat-number"><span className="count-target" data-target="3">0</span></div>
+            <div className="stat-label">Integrated service lines</div>
           </div>
           <div className="stat-item">
             <div className="stat-number"><span className="count-target" data-target="31">0</span><span>%</span></div>
@@ -379,7 +379,7 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="feature-title">Medical Devices &amp; Ocular</h3>
-              <p className="feature-desc">Submit lymphedema compression pump and garment orders with HCPCS codes and pressure settings. Separately, order VisiDisc® amniotic membrane discs by variant, size, and SKU — shipping tiers calculated automatically.</p>
+              <p className="feature-desc">Submit AIROS compression pump and lymphedema garment orders with HCPCS codes, limb measurements, and pressure settings. Order VisiDisc® amniotic membrane discs (Skye Biologics) by variant (45μm/200μm), size (8–18mm), and SKU — shipping tiers auto-calculated at checkout.</p>
             </div>
 
             <div className="feature-card feature-card-gold">
@@ -392,7 +392,7 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="feature-title">Supplier Distribution</h3>
-              <p className="feature-desc">DR Representatives send formatted order packages directly to distributors from inside the portal — no copy-paste, no fax. Supplier email addresses are configurable per service line via System Settings.</p>
+              <p className="feature-desc">DR Representatives send formatted order packages directly to distributors from inside the portal — one click dispatches a structured email to the configured supplier. Supplier addresses are set per service line in System Settings, with automatic CC to the ITS rep on every new submission.</p>
             </div>
 
             <div className="feature-card feature-card-primary">
@@ -417,7 +417,7 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="feature-title">Role-Based Access</h3>
-              <p className="feature-desc">Providers see only their own submissions and enabled service lines. DR Representatives manage all assigned clinic accounts. Admins control the entire system — users, tracks, routing rules, and settings — from one dashboard.</p>
+              <p className="feature-desc">Providers see only their own submissions on enabled tracks (Tissue, Medical Devices, or Ocular). DR Representatives manage all assigned clinic accounts in a unified queue. Admins control the entire system — users, practice tracks, routing rules, and system settings — from one dashboard.</p>
             </div>
 
             <div className="feature-card feature-card-gold">
@@ -428,8 +428,8 @@ export default function Home() {
                   <path d="M8 10L10 12L14 8" stroke="#C9963A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
-              <h3 className="feature-title">Analytics &amp; Audit Logs</h3>
-              <p className="feature-desc">Practice-wide outcome metrics, commission data, and success rates per service line. Every database change is logged — table, record, old and new values — giving admins a complete, timestamped compliance history.</p>
+              <h3 className="feature-title">Analytics, Policy Assistant &amp; Audit</h3>
+              <p className="feature-desc">Track outcome metrics, commission data, and success rates per service line. Ask the AI Policy Assistant natural language questions about CMS coverage policies — powered by Gemini embeddings over ingested PDF documents. Every database change is audit-logged with old and new values for full compliance traceability.</p>
             </div>
           </div>
         </div>
@@ -450,17 +450,17 @@ export default function Home() {
             <div className="step">
               <div className="step-number">01</div>
               <h3 className="step-title">Submit &amp; Request</h3>
-              <p className="step-desc">Providers complete guided intake forms for BV requests or product orders. Patient demographics, wound details, ICD-10 codes, and insurance information are captured in one structured flow — no freeform fields, no missing data.</p>
+              <p className="step-desc">Providers complete guided intake forms for BV requests or product orders. Patient demographics, wound details, ICD-10 codes, and insurance information are captured in one structured flow. OTP-based login (no passwords) keeps access secure and fast.</p>
             </div>
             <div className="step">
               <div className="step-number">02</div>
               <h3 className="step-title">Review &amp; Verify</h3>
-              <p className="step-desc">DR Representatives review submissions in their unified dashboard, verify insurance coverage, confirm manufacturer routing, and approve or deny BV requests. Nothing ships without a verified sign-off.</p>
+              <p className="step-desc">DR Representatives review all submissions in their unified dashboard across all service lines. They verify insurance coverage, confirm manufacturer routing via insurance routing tables, and approve or deny BV requests. Nothing ships without a verified sign-off.</p>
             </div>
             <div className="step">
               <div className="step-number">03</div>
               <h3 className="step-title">Fulfill &amp; Track</h3>
-              <p className="step-desc">Approved orders are dispatched to distributors via formatted supplier emails. Healing progress is logged week-over-week, outcomes are recorded, and admins access the full audit trail and analytics in real time.</p>
+              <p className="step-desc">Approved orders are dispatched to distributors via one-click formatted supplier emails — SendGrid delivers structured order packages directly to the configured supplier address. Wound healing progress is logged in cm² week-over-week, outcomes are recorded, and admins access the full audit trail and analytics in real time.</p>
             </div>
           </div>
         </div>
