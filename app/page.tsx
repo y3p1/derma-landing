@@ -516,9 +516,9 @@ export default function Home() {
                 <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </a>
-            <span className="btn-outline-lg btn-outline-disabled">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=shawn.druzali04@gmail.com" target="_blank" rel="noopener noreferrer" className="btn-outline-lg">
               Contact Sales
-            </span>
+            </a>
           </div>
 
           <p className="cta-footnote">No credit card. HIPAA-compliant environment. Setup in 24 hours.</p>
